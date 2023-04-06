@@ -2,7 +2,25 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class BooksService {
-    findAll():any{
-        return 'findAll is working';
+    findAll(params):any{
+        let msg = `findAll funcionando. Parámetros:`;
+
+        if (params.order !== undefined) {
+          msg = msg + ` order: ${params.order}`;
+        }
+    
+        if (params.limit !== undefined) {
+          msg = msg + ` limit: ${params.limit}`;
+        }
+    
+        return msg;
+    }
+
+    findBook(bookId:string){
+        return `findBook funcionado con bookId:${bookId}`;
+    }
+
+    createBook(newBook:any){
+      return newBook;
     }
 }
